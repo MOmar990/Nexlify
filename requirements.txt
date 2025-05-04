@@ -1,0 +1,4 @@
+# Darkwire v3.8 Requirements
+pycryptodome>=3.20.0
+uuid==1.30
+tkinter
