@@ -1,34 +1,44 @@
-# Nexlify
+# Nexlify 💾🔒
 
-Nexlify is a secure, peer-to-peer messaging application built with Python and Tkinter. Featuring end-to-end encryption, customizable codenames, and a cyberpunk-inspired interface, Nexlify ensures private and reliable communication for both local and networked environments. It supports host-client architecture, stealth mode for anonymized messaging, and optional message compression.
+[![Latest Release](https://img.shields.io/github/v/release/MOmar990/Nexlify?color=00F5E1&style=flat-square)](https://github.com/MOmar990/Nexlify/releases/tag/v1.0.0)
 
-## Features
+**Nexlify** is a secure, peer-to-peer messaging application built with Python and Tkinter. Designed for privacy and performance, it offers end-to-end encryption, a cyberpunk-inspired interface, and flexible host-client architecture. Whether you're running a secure node or connecting to one, Nexlify ensures your communications are protected with AES-GCM encryption, anonymized codenames, and optional message compression.
 
-- **End-to-End Encryption**: Messages are encrypted using AES-GCM with a shared passphrase and token.
-- **Host or Client Mode**: Run as a host to accept connections or as a client to join a network.
-- **Stealth Mode**: Anonymize your identity with hashed codenames.
-- **Message Compression**: Optional zlib compression for efficient data transfer.
-- **Cyberpunk UI**: Sleek, neon-themed Tkinter interface with JetBrains Mono font.
-- **Commands**: Supports `/ping`, `/who`, `/ghost`, `/compress`, and more for enhanced control.
-- **Robust Logging**: Detailed logs for debugging and monitoring.
+## 🚀 Features
 
-## Installation
+- **End-to-End Encryption**: Secure messages with AES-GCM using a shared passphrase and token.
+- **Host/Client Modes**: Host a node to accept connections or join as a client.
+- **Concurrent Users**: Supports up to 20 concurrent users, depending on hardware and network conditions.
+- **Stealth Mode**: Anonymize your identity with hashed codenames for extra privacy.
+- **Message Compression**: Optimize data transfer with optional zlib compression.
+- **Cyberpunk UI**: Neon-themed Tkinter interface with JetBrains Mono font for a futuristic vibe.
+- **In-App Commands**:
+  - `/ping`: Measure latency to the host (client only).
+  - `/who`: List connected clients.
+  - `/ghost`: Toggle stealth mode.
+  - `/compress`: Enable/disable compression.
+  - `/clear`: Clear the chat window.
+  - `/exit`: Disconnect and return to mode selection.
+- **Robust Logging**: Detailed debug logs in `secure_node_logs/` for troubleshooting.
+- **Cross-Platform**: Runs on Windows, macOS, and Linux with Python 3.8+.
+
+## 🛠️ Installation
 
 ### Prerequisites
 
-- Python 3.8 or higher
-- Tkinter (included with Python or install via `sudo apt-get install python3-tk` on Debian/Ubuntu)
-- JetBrains Mono font (optional, for optimal UI experience)
+- **Python 3.8+**: Ensure Python is installed (`python3 --version`).
+- **Tkinter**: Included with Python or install via `sudo apt-get install python3-tk` (Debian/Ubuntu).
+- **JetBrains Mono Font**: Optional for the best UI experience. Download from [JetBrains](https://www.jetbrains.com/lp/mono/).
 
-### Steps
+### Option 1: Manual Setup
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/Python-Chat.git
-   cd Python-Chat
+   git clone https://github.com/MOmar990/Nexlify.git
+   cd Nexlify
    ```
 
-2. **Set Up a Virtual Environment** (recommended):
+2. **Create a Virtual Environment**:
    ```bash
    python3 -m venv myenv
    source myenv/bin/activate  # On Windows: myenv\Scripts\activate
@@ -44,55 +54,109 @@ Nexlify is a secure, peer-to-peer messaging application built with Python and Tk
    python3 nexlify.py
    ```
 
-## Usage
+### Option 2: Installation Wizard (Recommended)
+
+Simplify setup with the CLI installation wizard, which automates virtual environment creation, dependency installation, and system checks.
+
+1. **Run the Wizard**:
+   ```bash
+   python3 setup.py
+   ```
+
+2. Follow the prompts to:
+   - Verify Python version.
+   - Create and activate a virtual environment.
+   - Install dependencies.
+   - Check Tkinter and port settings.
+
+3. Activate the virtual environment as instructed and run:
+   ```bash
+   python3 nexlify.py
+   ```
+
+## 📡 Usage
 
 ### Running as a Host
 
 1. Launch Nexlify and select **Initialize Node (Host)**.
-2. Enter a codename (or use "random"), a passphrase, and a port (default: 9999).
-3. Note the generated authentication token.
+2. Enter a codename (or "random"), a passphrase, and a port (default: 9999).
+3. Copy the generated authentication token.
 4. Share the passphrase, port, and token with clients.
-5. Start chatting once clients connect.
+5. Start messaging once clients connect.
 
 ### Running as a Client
 
 1. Launch Nexlify and select **Connect to Node (Client)**.
-2. Enter a codename, the host's IP (e.g., `127.0.0.1` for local), port, passphrase, and token.
-3. Connect and start messaging.
+2. Enter a codename, the host’s IP (e.g., `127.0.0.1` for local), port, passphrase, and token.
+3. Connect and begin chatting.
 
 ### Commands
 
-- `/ping`: Check latency to the host (client only).
-- `/who`: List connected clients.
-- `/ghost`: Toggle stealth mode.
+Use these in the chat input:
+- `/ping`: Check host latency (client only).
+- `/who`: List active clients.
+- `/ghost`: Enable/disable stealth mode.
 - `/compress`: Toggle message compression.
-- `/clear`: Clear the chat window.
-- `/exit`: Disconnect and return to the mode selection screen.
+- `/clear`: Clear the chat display.
+- `/exit`: Disconnect from the network.
 
-## Logs
+## 🔍 Troubleshooting
 
-Logs are stored in the `secure_node_logs/` directory with timestamps (e.g., `darkwire_20250508_*.log`). Enable debug mode in `nexlify.py` (`DEBUG_MODE = True`) for verbose logging.
+- **Tkinter Not Found**:
+  - Linux: `sudo apt-get install python3-tk`
+  - macOS/Windows: Install Python from [python.org](https://www.python.org) to include Tkinter.
+- **Port 9999 Blocked**:
+  - Linux: `sudo ufw allow 9999`
+  - Windows: Allow port 9999 in Windows Firewall.
+  - Try a different port if conflicts occur.
+- **Dependency Issues**:
+  - Update pip: `pip install --upgrade pip`
+  - Ensure Python 3.8+: `python3 --version`
+- **Messaging Problems**:
+  - Check `secure_node_logs/*.log` for errors (enable `DEBUG_MODE = True` in `nexlify.py`).
+  - Verify host IP, port, passphrase, and token match.
+  - Test with fewer clients if performance degrades (e.g., >20 users).
+- **Font Fallback**:
+  - Install JetBrains Mono for the optimal UI experience, or accept the default font.
 
-## Contributing
+## 🗂️ Logs
 
-We welcome contributions to Nexlify! To contribute:
+Debug logs are saved in `secure_node_logs/` with timestamps (e.g., `darkwire_20250508_*.log`). Set `DEBUG_MODE = True` in `nexlify.py` for verbose output.
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
 
 1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/your-feature`).
-3. Commit your changes (`git commit -m "Add your feature"`).
-4. Push to the branch (`git push origin feature/your-feature`).
-5. Open a pull request with a clear description.
+2. Create a feature branch: `git checkout -b feature/your-feature`
+3. Commit changes: `git commit -m "Add your feature"`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a pull request with a detailed description.
 
-Please follow the [Code of Conduct](CODE_OF_CONDUCT.md) and ensure your code adheres to PEP 8 style guidelines.
+Adhere to PEP 8 style guidelines and follow the [Code of Conduct](CODE_OF_CONDUCT.md) (coming soon).
 
-## License
+## 📜 License
 
-Nexlify is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+Nexlify is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for details.
 
-## Contact
+## 📬 Contact
 
-For issues or feature requests, open a GitHub issue or contact the maintainers at [your.email@example.com](mailto:your.email@example.com).
+For issues, feature requests, or feedback:
+- Open a GitHub issue at [MOmar990/Nexlify](https://github.com/MOmar990/Nexlify/issues).
+- Contact: [your.email@example.com](mailto:your.email@example.com) (replace with your email).
+
+## 🎉 Latest Release
+
+[Nexlify v1.0.0](https://github.com/MOmar990/Nexlify/releases/tag/v1.0.0) - Initial release with secure messaging, end-to-end encryption, and a cyberpunk-inspired UI.
+
+## 🔮 Known Limitations
+
+- **Scalability**: Single-threaded server supports up to 20 concurrent users, depending on hardware. Performance may degrade with more users; multi-threading or asyncio planned for future releases.
+- **No Automated Tests**: Manual testing recommended for this release.
+- **Font Dependency**: JetBrains Mono is optional; UI falls back to default font if unavailable.
+- **Installation Wizard**: Requires manual virtual environment activation.
 
 ---
 
+**Nexlify**: Secure. Sleek. Connected.  
 Built with 💾 and 🔒 by the Nexlify Team
