@@ -1,6 +1,7 @@
 # Nexlify 💾🔒
 
-[![Latest Release](https://img.shields.io/github/v/release/MOmar990/Nexlify?color=00F5E1&style=flat-square)](https://github.com/MOmar990/Nexlify/releases/tag/v1.0.0)
+## 🎉 Latest Release
+[Nexlify v1.0.0](https://github.com/MOmar990/Nexlify/releases/tag/v1.0.0) - Initial release with secure messaging, end-to-end encryption, and a cyberpunk-inspired UI.
 
 **Nexlify** is a secure, peer-to-peer messaging application built with Python and Tkinter. Designed for privacy and performance, it offers end-to-end encryption, a cyberpunk-inspired interface, and flexible host-client architecture. Whether you're running a secure node or connecting to one, Nexlify ensures your communications are protected with AES-GCM encryption, anonymized codenames, and optional message compression.
 
